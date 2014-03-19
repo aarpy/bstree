@@ -23,21 +23,9 @@ func (tree *Tree) Add (value int) {
     if value == (*parent).value {
       break //do not worry about duplicates
     } else if value < (*parent).value {
-      if (*parent).left == nil || value <= (*parent).left.value {
-        parent = &((*parent).left)
-      } else { // insert the element
-        tmp := (*parent).left
-        (*parent).left = &Node{value: value}
-        (*parent).left.left = tmp
-      }
-    } else if value > (*parent).value {
-      if (*parent).right == nil || value >= (*parent).right.value {
-        parent = &((*parent).right)
-      } else { // insert the element
-        tmp := (*parent).right
-        (*parent).right = &Node{value: value}
-        (*parent).right.right = tmp
-      }
+      parent = &((*parent).left)
+    } else {
+      parent = &((*parent).right)
     }
   }
 

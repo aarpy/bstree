@@ -36,6 +36,26 @@ func (tree *Tree) Add (value int) {
 
 func (tree *Tree) Path (value int) {
 
+  found := false
+  node := tree.root
+
+  for node != nil {
+    if value == node.value {
+      fmt.Println(value)
+      found = true
+      break;
+    } else if (value < node.value) {
+      fmt.Print(node.value, " L> ")
+      node = node.left
+    } else {
+      fmt.Print(node.value, " R> ")
+      node = node.right
+    }
+  }
+
+  if !found {
+    fmt.Println(value, "- Not found")
+  }
 }
 
 func (tree *Tree) Print () {

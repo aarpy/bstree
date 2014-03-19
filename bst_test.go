@@ -20,11 +20,22 @@ func ExampleBst() *bst.Tree {
   tree.Add(14)
   tree.Add(1)
   tree.Add(11)
+  tree.Add(13)
 
   return tree
 }
 
-func TestBst(t *testing.T) {
+func TestBstInsertion(t *testing.T) {
   tree := ExampleBst()
   tree.Print()
+}
+
+func TestBstPath(t *testing.T) {
+  tree := ExampleBst()
+  tree.Path(3)
+  tree.Path(8)
+  tree.Path(1)
+  tree.Path(17)
+  tree.Path(13)
+  tree.Path(16)
 }
